@@ -209,7 +209,7 @@ In the **Requirements** phase, Joule Studio generates a full **Product Requireme
     - *Guardrails*: **no writes to SAP** - the agent reads data and runs server-side margin reasoning only, it never posts or updates quotations, pricing conditions, or master data; flag **HIGH RISK** and advise escalation if a proposed discount drops projected margin below the configured margin floor; gracefully handle partial data when one data source is unavailable; detect and block prompt injection in user input
     - *Human decision*: the sales rep decides whether to apply the recommended discount - the agent recommends, the rep acts
 
-- **Milestones**: The same five milestones (data connectivity → outcome tracked) that first appeared in the Intent, now with explicit acceptance criteria and traceability back to the requirements.
+- **Milestones**: The same milestones (data connectivity → outcome tracked) that first appeared in the Intent, now with explicit acceptance criteria and traceability back to the requirements.
 
 ### Inspect the Generated Specification
 
@@ -219,7 +219,7 @@ In the **Specification** phase, Joule Studio translates the PRD into a generated
 
     ![Specification](10_specification.png)
 
-    The Specification tab shows the agent name (**AI Sales Assistant**) and a list of setup and implementation tasks Joule Studio will perform when the solution is built - typically a **Solution Setup** section (creating the asset directory and configuration files) followed by **Asset Implementation** entries (populating the agent code and the MCP server translation files). The exact bullets you see will differ slightly in your run; the two-section structure is the pattern to recognise.
+    The Specification tab shows the agent name (here **AI Sales Assistant**) and a list of setup and implementation tasks Joule Studio will perform when the solution is built - typically a **Solution Setup** section (creating the asset directory and configuration files) followed by **Asset Implementation** entries (populating the agent code and the MCP server translation files). The exact bullets you see will differ slightly in your run; the two-section structure is the pattern to recognise.
 
 2. Read the three-phase summary in the right-hand chat panel. The chat panel confirms what has been produced across the Intent, PRD, and Specification phases. For this tutorial, you should see:
     - **Intent Analysis** - the discount strategy challenge mapped to a Lead to Cash E2E process (**Plan sales & manage performance, BPS-369** is typical). SAP Sales Cloud and SAP S/4HANA Cloud are identified as the core standard assets. Because no pre-built MCP servers exist for these APIs, Joule Studio will generate the translation files from the API specs.

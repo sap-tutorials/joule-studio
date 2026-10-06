@@ -121,7 +121,7 @@ The **Intent** phase is the starting point of every agent in Joule Studio. You d
 
 ### Review the Intent
 
-After submitting the business goals, Joule Studio generates an **intent.md** file that reflects its interpretation of the solution. The **Intent Summary** tab shows the result in three sections: the business challenge in plain language, a business goals table, and a set of key milestones the agent must achieve.
+After submitting the business goals, Joule Studio generates an **intent.md** file that reflects its interpretation of the solution.
 
 1. Under **Solution Progress** in the left panel, choose **Intent Summary**.
 
