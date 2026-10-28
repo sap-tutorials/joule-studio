@@ -122,7 +122,7 @@ In this exercise you will open VS Code, create your working folder, log into the
 2. If a "Sign in" or welcome page opens, close it
 
     <!-- border -->
-    ![VS Code open with no folder](11.png)
+    ![VS Code open with no folder](011.png)
 
 #### Create Your Working Folder
 
@@ -134,12 +134,12 @@ In this exercise you will open VS Code, create your working folder, log into the
 
 
     <!-- border -->
-    ![New folder dialog on Desktop](02_new_folder_desktop.png)
+    ![New folder dialog on Desktop](002_new_folder_desktop.png)
 
     You should now see an empty Explorer panel with the folder name at the top left.
 
     <!-- border -->
-    ![Empty project folder open in Explorer](03_folder_open_in_explorer.png)
+    ![Empty project folder open in Explorer](003_folder_open_in_explorer.png)
 
 > **Tip:** If VS Code asks "Do you trust the authors?" — click **Yes, I trust the authors**.
 
@@ -151,7 +151,7 @@ In this exercise you will open VS Code, create your working folder, log into the
 2. A terminal panel opens at the bottom. Confirm it shows your project folder as the current directory.
 
     <!-- border -->
-    ![Terminal open project folder](04_terminal_open.png)
+    ![Terminal open project folder](004_terminal_open.png)
 
 #### Verify the CLI
 
@@ -162,7 +162,7 @@ jl --help
 You should see the full list of available Joule Studio CLI commands.
 
 <!-- border -->
-![jl help](05_jl_help.png)
+![jl help](005_jl_help.png)
 
 Then check the installed version:
 
@@ -171,7 +171,7 @@ jl version
 ```
 
 <!-- border -->
-![jl version output](06b_jl_version.png)
+![jl version output](006b_jl_version.png)
 
 #### Log In
 
@@ -180,17 +180,17 @@ Before running `jl login`, get your personal Sign-in URL from the Joule Studio w
 1. Open Joule Studio in your browser
 
     <!-- border -->
-    ![Joule Studio](05b_joule_studio_home.png)
+    ![Joule Studio](005b_joule_studio_home.png)
 
 2. Select your user icon in the bottom-left corner → **Settings**
 
     <!-- border -->
-    ![User menu](05c_joule_studio_user_menu.png)
+    ![User menu](005c_joule_studio_user_menu.png)
 
 3. Go to **Develop** → under **CLI Authorization**, copy the Sign-in URL
 
     <!-- border -->
-    ![Develop tab](05d_joule_studio_develop_signin_url.png)
+    ![Develop tab](005d_joule_studio_develop_signin_url.png)
 
 Back in the terminal, pass the URL to `jl login` — wrap it in single quotes:
 
@@ -198,7 +198,7 @@ Back in the terminal, pass the URL to `jl login` — wrap it in single quotes:
 jl login '<your Sign-in URL>'
 ```
 <!-- border -->
-![jl login completed](06_jl_login.png)
+![jl login completed](006_jl_login.png)
 
 A browser window opens for authentication. Once confirmed, the CLI stores the session.
 
@@ -212,13 +212,12 @@ Run `jl init` command with the selected coding agent as an argument. For example
 
 ```bash
 jl init opencode
-jl init opencode
 ```
 
 `jl init` sets up the Joule Studio project in your current folder — it fetches the IBD skills into `skills/` folder (correct path depends on the selected coding agent) and writes other configuration files.
 
 <!-- border -->
-![jl init complete](08_jl_init_complete_skills_tree.png)
+![jl init complete](008_jl_init_complete_skills_tree.png)
 
 > **Do not modify the IBD skills.** The files in the `skills/` folder encode deployment conventions. Customize your agent through its own code, not through the skills that generate it.
 
@@ -233,14 +232,14 @@ opencode
 The coding agent opens — a chat interface inside the terminal.
 
 <!-- border -->
-![OpenCode](09_open_code_launched.png)
+![OpenCode](009_open_code_launched.png)
 
 > **Auto-approve mode**
 > Use [auto-approve mode](https://opencode.ai/docs/permissions/) for your coding agent to avoid approving of every step. Make sure that you accept the risks of this mode.
 > - **opencode**: append `--auto` when launching: `opencode --auto`
 
 <!-- border -->
-![OpenCode Auto-approve](09_open_code_launched_auto.png)
+![OpenCode Auto-approve](009_open_code_launched_auto.png)
 
 
 ```
@@ -276,7 +275,7 @@ Rules the agent must follow:
 > **In a hurry?** Add `FastTrack.` to the end of your prompt to skip all questions and go straight to the result.
 
 <!-- border -->
-![IBD skill analysis](02_ibd_skill_running.png)
+![IBD skill analysis](002_ibd_skill_running.png)
 
 The IBD skill loads and begins the intent analysis pipeline.
 
@@ -288,7 +287,7 @@ The IBD skill loads and begins the intent analysis pipeline.
 IBD will ask follow-up questions before generating the intent document. Use this cheat sheet to answer quickly.
 
 <!-- border -->
-![IBD success metrics](03_ibd_success_metrics_question.png)
+![IBD success metrics](003_ibd_success_metrics_question.png)
 
 ##### Cheat sheet
 
@@ -313,15 +312,15 @@ IBD will ask follow-up questions before generating the intent document. Use this
 After answering all questions, IBD shows a summary for review:
 
 <!-- border -->
-![IBD review.md](04_ibd_review_answers_prompt.png)
+![IBD review.md](004_ibd_review_answers_prompt.png)
 
 IBD then presents a Business Goals & Success Criteria table and asks you to confirm:
 
 <!-- border -->
-![IBD confirm goals](05_ibd_confirm_goals_table.png)
+![IBD confirm goals](005_ibd_confirm_goals_table.png)
 
 <!-- border -->
-![IBD confirm goals details](05_ibd_confirm_goals_details.png)
+![IBD confirm goals details](005_ibd_confirm_goals_details.png)
 
 
 #### What is Happening Behind the Scenes
@@ -343,7 +342,7 @@ When the analysis completes, IBD generates `intent.md`. You may be asked to conf
 Open `intent.md` in the editor to read the full structured document:
 
 <!-- border -->
-![intent.md open in VS Code](07_intent_md_open_in_editor.png)
+![intent.md open in VS Code](007_intent_md_open_in_editor.png)
 
 ### Review Intent, PRD & Specification
 
@@ -377,7 +376,7 @@ Use this table when reviewing the PRD and specification. IBD may discover APIs v
 - A pro-code Python AI agent is the recommended solution type
 
     <!-- border -->
-    ![intent.md open in VS Code](01_intent_md_terminal_review.png)
+    ![intent.md open in VS Code](001_intent_md_terminal_review.png)
 
 > **Refining intent:** If something important is missing, type a correction before proceeding. Example:
 > `"Also add: the risk score must show the scoring rationale for each line item, not just the label."`
@@ -388,7 +387,7 @@ When you are satisfied, type in the coding agent:
 Continue with PRD
 ```
 <!-- border -->
-![intent.md reviewed](01_intent_reviewed_continue_with_prd.png)
+![intent.md reviewed](001_intent_reviewed_continue_with_prd.png)
 
 #### Review the PRD
 
@@ -402,7 +401,7 @@ IBD generates `product-requirements-document.md`.
 - The composite risk scoring model (HIGH / MEDIUM / LOW) is described as a functional requirement
 
 <!-- border -->
-![PRD overview](04_prd_overview.png)
+![PRD overview](004_prd_overview.png)
 
 
 When ready, type:
@@ -411,7 +410,7 @@ When ready, type:
 Create specification
 ```
 <!-- border -->
-![PRD reviewed](04_prd_reviewed_create_spec_command.png)
+![PRD reviewed](004_prd_reviewed_create_spec_command.png)
 
 #### Review the Specification
 
@@ -427,7 +426,7 @@ IBD generates `specification.md` inside `specification/your-agent-name/`.
 > `"Remove [API name] from the specification and only use APIs from the available list."`
 
 <!-- border -->
-![specification.md](05_spec_overview.png)
+![specification.md](005_spec_overview.png)
 
 When ready, type:
 
@@ -436,7 +435,7 @@ Execute specification
 ```
 
 <!-- border -->
-![exec spec](05_spec_api_discovery_execute_command.png)
+![exec spec](005_spec_api_discovery_execute_command.png)
 
 After execution, the full agent file structure is generated:
 
