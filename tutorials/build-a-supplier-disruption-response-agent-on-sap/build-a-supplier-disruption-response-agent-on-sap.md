@@ -18,6 +18,7 @@ author_profile: https://github.com/pbujnicka
 - Access to Joule Work and Joule Studio
 - VS Code installed on your session laptop
 - [`jl` CLI (Joule Studio CLI)](https://help.sap.com/docs/joule-studio/joule-studio/joule-studio-for-cli-pro-code-development-in-joule-studio)
+- any compatible coding agent (e.g. OpenCode)
 
 > **No starter repo needed.** You create everything from scratch using the IBD flow.
 
@@ -45,7 +46,7 @@ Joule Studio supports two development modes:
 | Mode | Who it's for | How it works |
 |------|-------------|--------------|
 | Web | Developers, business analysts | Visual flow builder in a browser |
-| **Local / CLI** | Developers, technical PMs | `jl` CLI + coding agent (Claude Code or opencode) on your laptop |
+| **Local / CLI** | Developers, technical PMs | `jl` CLI + coding agent (e.g. OpenCode) on your laptop |
 
 
 
@@ -113,7 +114,7 @@ Both MCP servers are generated during the exercise using the MCP Builder in Joul
 In this exercise you will open VS Code, create your working folder, log into the provided Joule Studio landscape, and launch the coding agent. This takes about 10 minutes.
 
 > **Note — Coding agent**
-> Depending on the landscape provided, the coding agent will be **Claude Code** (`claude`) or **opencode** (`opencode`). Both support the same IBD flow — every step in these exercises is identical regardless of which one is installed.
+> You can choose a coding agent based on your preferences or your company policies. In this tutorial OpenCode will be shown as an example. All the supported coding agents will use the same IBD flow — every step in these exercises is identical regardless of which one is installed. To check which coding agents are supported, run the following command in the terminal: `jl init -h`
 
 #### Open VS Code
 
@@ -207,24 +208,23 @@ A browser window opens for authentication. Once confirmed, the CLI stores the se
 
 ### Initialize the Project
 
+Run `jl init` command with the selected coding agent as an argument. For example for OpenCode use the following syntax:
+
 ```bash
-jl init claude
+jl init opencode
+jl init opencode
 ```
 
-`jl init` sets up the Joule Studio project in your current folder — it fetches the IBD skills into `.claude/skills/` and writes `.mcp.json` and `.claude/settings.local.json`.
+`jl init` sets up the Joule Studio project in your current folder — it fetches the IBD skills into `skills/` folder (correct path depends on the selected coding agent) and writes other configuration files.
 
 <!-- border -->
 ![jl init complete](08_jl_init_complete_skills_tree.png)
 
-> **Do not modify the IBD skills.** The files in `.claude/skills/` encode deployment conventions. Customize your agent through its own code, not through the skills that generate it.
+> **Do not modify the IBD skills.** The files in the `skills/` folder encode deployment conventions. Customize your agent through its own code, not through the skills that generate it.
 
 #### Launch the Coding Agent
 
-```bash
-claude
-```
-
-or:
+Run your coding agent. For example, for OpenCode use the following command:
 
 ```bash
 opencode
@@ -233,20 +233,21 @@ opencode
 The coding agent opens — a chat interface inside the terminal.
 
 <!-- border -->
-![Claude Code](09_claude_code_launched.png)
+![OpenCode](09_open_code_launched.png)
 
 > **Auto-approve mode**
-> - **Claude Code**: press `Shift+Tab` once or twice to cycle to **Auto-approve** mode
+> Use [auto-approve mode](https://opencode.ai/docs/permissions/) for your coding agent to avoid approving of every step. Make sure that you accept the risks of this mode.
 > - **opencode**: append `--auto` when launching: `opencode --auto`
 
 <!-- border -->
-![Claude Code Auto-approve](09_claude_code_launched_auto.png)
+![OpenCode Auto-approve](09_open_code_launched_auto.png)
 
 
 ```
 Desktop/
 └── <your-project-name>/
-    └── .claude/          ← IBD skills + MCP config, created by jl init
+    └── .agents/skills/ ← IBD skills
+        opencode.json ← MCP and permissions config
 ```
 
 The coding agent is running and waiting for input.
@@ -319,6 +320,9 @@ IBD then presents a Business Goals & Success Criteria table and asks you to conf
 <!-- border -->
 ![IBD confirm goals](05_ibd_confirm_goals_table.png)
 
+<!-- border -->
+![IBD confirm goals details](05_ibd_confirm_goals_details.png)
+
 
 #### What is Happening Behind the Scenes
 
@@ -334,10 +338,7 @@ IBD then presents a Business Goals & Success Criteria table and asks you to conf
 
 #### Review and Save `intent.md`
 
-When the analysis completes, IBD generates `intent.md`. VS Code will prompt you to save it — click **Yes, allow all edits during this session**.
-
-<!-- border -->
-![intent.md](06_intent_md_save_prompt.png)
+When the analysis completes, IBD generates `intent.md`. You may be asked to confirm the intent draft. Just accept it. 
 
 Open `intent.md` in the editor to read the full structured document:
 
@@ -391,10 +392,7 @@ Continue with PRD
 
 #### Review the PRD
 
-IBD generates `product-requirements-document.md`. VS Code will prompt you to save it.
-
-<!-- border -->
-![PRD generated — VS Code save prompt](02_prd_save_prompt.png)
+IBD generates `product-requirements-document.md`. 
 
 **Check the following:**
 - Business metrics are meaningful and match your input intent
@@ -402,6 +400,10 @@ IBD generates `product-requirements-document.md`. VS Code will prompt you to sav
 - Solution architecture lists exactly S/4HANA MCP servers available on this tenant
 - All milestones are represented as named functional requirements
 - The composite risk scoring model (HIGH / MEDIUM / LOW) is described as a functional requirement
+
+<!-- border -->
+![PRD overview](04_prd_overview.png)
+
 
 When ready, type:
 
@@ -425,7 +427,7 @@ IBD generates `specification.md` inside `specification/your-agent-name/`.
 > `"Remove [API name] from the specification and only use APIs from the available list."`
 
 <!-- border -->
-![specification.md](05_spec_api_discovery_execute_command.png)
+![specification.md](05_spec_overview.png)
 
 When ready, type:
 
@@ -433,12 +435,15 @@ When ready, type:
 Execute specification
 ```
 
+<!-- border -->
+![exec spec](05_spec_api_discovery_execute_command.png)
+
 After execution, the full agent file structure is generated:
 
 <!-- border -->
 ![Specification](06_spec_complete_file_structure.png)
 
-### What Happened Behind the Scenes
+#### What Happened Behind the Scenes
 
 | Document | Generated by | Purpose |
 |----------|-------------|---------|
