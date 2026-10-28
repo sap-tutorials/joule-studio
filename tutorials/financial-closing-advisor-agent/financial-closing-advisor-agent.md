@@ -44,9 +44,9 @@ parser: v2
 
 Every financial close is a race against time. Dozens of interdependent tasks - depreciation runs, foreign currency revaluations, GR/IR clearings, intercompany reconciliations, accruals, cost allocations, and more - must be completed in a defined sequence before the books can be locked. Miss one step, execute two tasks out of order, or fail to notice a blocked task until late in the cycle, and the entire close slips.
 
-In this tutorial, you build a **Financial Closing Advisor Agent** using Joule Studio. The agent connects to the SAP Financial Closing Cockpit to read the status of every task in the current closing cycle, evaluates the dependency graph and priority of the full task list, identifies what is completed, what is ready to start, and what is blocked - then recommends to the financial controller exactly which closing activities to action next, in the correct sequence, with the reasoning made explicit.
+In this tutorial, you will build a **Financial Closing Advisor Agent** using Joule Studio. The agent connects to the SAP Financial Closing Cockpit to read the status of every task in the current closing cycle, evaluates the dependency graph and priority of the full task list, identifies what is completed, what is ready to start, and what is blocked - then recommends to the financial controller exactly which closing activities to action next, in the correct sequence, with the reasoning made explicit.
 
-You will move through all phases of the Joule Studio intent-based development process: from a plain-language intent statement to a deployed Python agent integrated with SAP S/4HANA via dedicated MCP servers.
+You will move through all phases of the Joule Studio's intent-based development process: from a plain-language intent statement to a deployed Python agent integrated with SAP S/4HANA via dedicated MCP servers.
 
 > **About the scenario:** The closing tasks and sequences referenced in this tutorial are illustrative. The agent pattern applies to any organisation running a structured financial close in SAP S/4HANA with tasks managed in the Financial Closing Cockpit.
 
@@ -301,7 +301,7 @@ With all tests passed and the validation score confirmed, the solution is ready 
 
 1. Choose **Deploy**. Then confirm with **Deploy** again.
 
-    ![Deploy](deploy.png)
+    ![Deploy](deploy_with_system.png)
 
 
 Joule Studio packages the agent and both MCP servers and deploys them to the **SAP managed service** on BAIP. Once deployment completes, `deploy_result.json` in the `specification/` folder is populated with the live endpoint URL, runtime ID, and deployment timestamp.
