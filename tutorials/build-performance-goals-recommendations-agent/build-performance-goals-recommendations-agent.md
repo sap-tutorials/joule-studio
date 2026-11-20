@@ -9,7 +9,7 @@ author_name: Paulina Bujnicka
 author_profile: https://github.com/pbujnicka
 ---
 
-# Build a Sales Goal Advisor Agent with Joule Studio, CRM, and SAP SuccessFactors
+# Build a Performance and Goals Recommendations Agent with Joule Studio, CRM, and SAP SuccessFactors
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ author_profile: https://github.com/pbujnicka
 
 ## You will learn
 
-- How to identify a sales productivity workflow that is well-suited for agent automation
+- How to identify a performance and goals recommendations workflow that is well-suited for agent automation
 - How to write an effective **intent statement** for an agent
 - How to review and validate the assets created, including the generated **Product Requirements Document (PRD)**
 - How to deploy a production-ready Joule Agent to the SAP managed service
@@ -62,7 +62,7 @@ The manual approach to goal-setting creates the following operational challenges
 
 > The agent eliminates all five pain points: it retrieves territory data automatically, loads the rep's SuccessFactors profile, guides them through a structured goal-selection conversation, and writes confirmed goals directly to SuccessFactors.
 
-In this tutorial, you build a Sales Goal Advisor Agent using Joule Studio. The agent connects live CRM data with the rep's SAP SuccessFactors profile and guides them through a structured conversation to set meaningful quarterly objectives grounded in real numbers. Once confirmed, the agent writes the goals directly into SAP SuccessFactors.
+In this tutorial, you build a Performance and Goals recommendations Agent using Joule Studio. The agent connects live CRM data with the rep's SAP SuccessFactors profile and guides them through a structured conversation to set meaningful quarterly objectives grounded in real numbers. Once confirmed, the agent writes the goals directly into SAP SuccessFactors.
 
 You'll follow the full Joule Studio development process - from a plain-language description of what you want to a deployed Python agent integrated with both a CRM system and SAP SuccessFactors via MCP.
 
@@ -76,14 +76,14 @@ In this step, you select Agent as the solution type and describe what you want t
 
 1. Open **Joule Studio**.
 
-![Open Joule Studio](bis1.1.png)
+![Open Joule Studio](bis1.0.png)
 
 2. Select **Create** to open the **Create Agent** dialog.
 
 3. Enter the agent name:
 
     ```
-    Sales Goal Advisor
+    Performance and Goals Recommendations
     ```
 
 4. Enter the following intent statement in the description field:
@@ -94,7 +94,7 @@ In this step, you select Agent as the solution type and describe what you want t
 
 5. Select **Quick Create** to skip clarifying questions and move directly to solution building. This adds *Fast Track* to the intent statement.
 
-![Create Agent](bis2.png)
+![Create Agent](bis1.1.png)
 
 6. Select **Create** to proceed.
 
@@ -106,7 +106,7 @@ A strong intent statement covers four dimensions: what the agent does, what data
 
 7. Confirm the Business Goals.
 
-![Confirm Business Goals](bis3.png)
+![Confirm Business Goals](bis1.2.png)
 
 Even when **Quick Create** is selected, Joule will collect the mandatory Business Goals & Success Criteria before completing the intent analysis. Answer any additional clarifying questions to the best of your knowledge - these inputs help Joule define the success metrics and tailor the generated PRD.
 
@@ -116,13 +116,13 @@ Even when **Quick Create** is selected, Joule will collect the mandatory Busines
    
 2. Under the **Intent Summary** tab, you may review the complete summary. This shows how Joule Studio interpreted your input. 
 
-![Intent Summary](bis4.png)
+![Intent Summary](bis1.3.png)
 
 3. Verify that this matches your intent. If the summary is missing an element or describes a different scope, you can refine the intent statement and re-submit. 
 
-4. You can find the **intent.md** file under **File tree** panel. 
+4. You can find the **intent.md** file under **File Tree** panel. 
 
-![Intent File](bis5.png)
+![Intent File](bis1.4.png)
 
 5. Scroll down to the **Fit Gap Analysis** and see what Joule has identified. 
    
@@ -130,7 +130,7 @@ Even when **Quick Create** is selected, Joule will collect the mandatory Busines
    
 7. At the bottom of the solution card, review the **Intent fit** score. A score of 90% or higher confirms a very high degree of alignment between the proposed solution and your original intent statement. If the score is lower, consider refining your intent statement.
 
-![Exploring the Intent File](bis6.png)
+![Exploring the Intent File](bis1.5.png)
 
 
 ### Product Requirements Document
@@ -141,11 +141,11 @@ In the **Requirements** phase, Joule Studio generates a **Product Requirements D
 
 2. Choose **Requirements** under **Solution Progress** panel. This opens the low-code view of the PRD. 
 
-![PRD](bis7.png)
+![PRD](bis1.6.png)
 
-3. To access the raw Markdown file, move to the **File tree** panel - this is the code view of the same document.
+3. To access the raw Markdown file, move to the **File Tree** panel - this is the code view of the same document.
 
-![PRD File](bis8.png)
+![PRD File](bis1.7.png)
 
 The PRD maps your intent to the actual business process. It covers the full scope of what the agent needs to do: identifying personas (e.g., sales rep, manager), pain points, success metrics, and guardrails. Review this section carefully: it defines the operational boundaries the agent will respect throughout all subsequent phases.
 
@@ -157,13 +157,13 @@ At the top of the document, you will find the elevator pitch, the business need 
 
 4. Scroll down to the **Requirements**.
 
-![Requirements](bis9.png)
+![Requirements](bis1.8.png)
 
 This section provides ranked requirements, with their user stories and acceptance criteria.
 
 **Automation and Agent Behavior**
 
-![Automation & Agent Behavior](bis10.png)
+![Automation & Agent Behavior](bis1.9.png)
 
 This section is critical - it defines exactly what the agent does autonomously, what requires a human decision, and what guardrails are in place.
 
@@ -178,17 +178,13 @@ In the **Specification** phase, Joule Studio translates the PRD into a generated
 
 1. Wait for the specification generation to complete. Review the summary of what has been created so far.
 
-![Specification Summary](bis11.png)
+![Specification Summary](bis1.10.png)
 
 The entire specification is transparent and reviewable **before any deployment is triggered**.
 
 ### Generate the Solution
 
-1. Once you have reviewed the specification, type execute specification/specification.md in the message window to trigger solution generation.
-
-![Execute Specification](bis12.png)
-
-In the **Solution Artifacts** phase, Joule Studio executes the specification and generates the complete, runnable solution: the anomaly detection engine, scenario calculation logic, chart generation, and approval-gated write-back - with no manual development required. Automatic tests will be created and executed.
+1. In the **Solution Artifacts** phase, Joule Studio executes the specification and generates the complete, runnable solution: the anomaly detection engine, scenario calculation logic, chart generation, and approval-gated write-back - with no manual development required. Automatic tests will be created and executed.
 
 2. Wait for the solution generation to complete before proceeding. You can find the agent under **Solution Artifacts**.
 
@@ -209,15 +205,15 @@ During this phase, Joule Studio:
 - Agent Configurations: circuit-breaker threshold, thread TTL, summarization trigger
 - The MCP Servers that allow the agent to read and write SuccessFactors Goal Plans as well as to retrieve the rep's employee profile.
 
-![Agent low-code view](bis13.png)
+![Agent low-code view](bis1.11.png)
 
 4. In the **Evaluation** section you can generate evaluation scenarios for this agent based on your intent.
 
-![Evaluation](bis16.png)
+![Evaluation](bis1.12.png)
   
 5. To see the generated Python code, move to the pro-code (Files) view.
 
-![Agent pro-code view](bis14.png)
+![Agent pro-code view](bis1.13.png)
 
 **Reviewing the MCP Servers**
 
@@ -225,7 +221,7 @@ Select MCP Servers in the agent definition to see the servers that were configur
 
 - They connect to the SAP SuccessFactors Goal Plan OData API and Employee Profile OData API allowing the agent to read the rep's existing goals and write newly confirmed goals back to SuccessFactors and to retrieve the rep's profile at the start of each session.
 
-![MCP Servers](bis15.1.png)
+![MCP Servers](bis1.14.png)
   
 No configuration is required: Joule Studio generated and wired up all servers from the specification.
 
@@ -239,17 +235,17 @@ The **Testing** phase is triggered automatically by Joule once the solution buil
 
 2. Verify that all tests pass before proceeding to deployment.
 
-![Verify Solution](bis17.png)
+![Verify Solution](bis1.15.png)
 
 > If any test fails, Joule will usually try to fix it automatically. If it gets stuck, you might converse with Joule to help fix the problem.
 
-3. Select the agent under **Preview** panel.
+3. Select the agent under **Preview with Mock Data** panel.
 
 4. In the chat field, enter a prompt that does not require live tool calls. For example: What are you responsible for? The agent will respond with a description of its capabilities without needing to connect to CRM or SuccessFactors.
 
-![Testing](bis18.1.png)
+![Testing](bis1.16.png)
 
-![Testing](bis19.png)
+![Testing](bis1.17.png)
 
 You can do some further testing before deployment.
 
@@ -259,13 +255,13 @@ With all tests passed and the validation score confirmed, the **Agent** is ready
 
 1. Choose **Deploy**. Then confirm with **Deploy** again.
    
-![Deploy](bis20.png)
+![Deploy](bis1.18.png)
 
 Joule Studio packages the agent and deploys it to the **SAP managed service** on BAIP. Once deployment completes, the `deploy_result.json` file in the `specification/` folder is populated with the live deployment details (endpoint URL, runtime ID, deployment timestamp).
 
 Your agent is now operational.
 
-> If you are working in a team or want to version-control the generated code, Joule Studio supports GitHub sync. You can find this option under **Actions** in the top bar.
+> If you are working in a team or want to version-control the generated code, Joule Studio supports GitHub sync. You can find this option under **Git actions** in the top bar.
 
 > For governance reasons, deployment to production is not done from within Joule Studio.
 
@@ -280,7 +276,7 @@ Once deployed, switch to the **Manage** tab in Joule Studio to access governance
 
 ### Summary
 
-You have completed the end-to-end design and deployment of a Sales Goal Advisor Agent using Joule Studio. In doing so, you have:
+You have completed the end-to-end design and deployment of a Performance and Goals Recommendations Agent using Joule Studio. In doing so, you have:
 
 - Identified the three dimensions of quarterly sales development objectives (pipeline, activity, growth) and the manual pain points that prevent data-grounded goal-setting today
 - Written an effective intent statement that Joule Studio translated into a structured, production-ready solution
